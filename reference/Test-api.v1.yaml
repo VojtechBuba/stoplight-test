@@ -1,5 +1,11 @@
 openapi: 3.0.0
+tags:
+  - name: products
+    description: produkty
 info:
+  description: Testovací api pro seznámení s novým nástrojem
+  contact: 
+    email: vojtech.buba@peckadesign.cz
   title: Test api
   version: '1.0'
 servers:
@@ -8,34 +14,40 @@ paths:
   '/products/{id}':
     parameters:
       - schema:
-          type: string
+          type: number
         name: id
         in: path
         required: true
     get:
       summary: Your GET endpoint
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
       operationId: get-products-id
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Product'
+      description: Získáni informací o produktu
 components:
   schemas:
     Product:
       title: Product
       type: object
+      description: Entita produktu
+      x-examples:
+        Basic product:
+          id: 10
+          name: Apple iPhone 8 64 GB
+          price: 399
+          description: Skvělý mobil
       properties:
         id:
-          type: string
+          type: number
         name:
           type: string
         price:
           type: number
         description:
-          type:
-            - string
-            - 'null'
-      description: Entita produktu
+          type: string
