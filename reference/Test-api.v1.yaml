@@ -4,7 +4,7 @@ tags:
     description: produkty
 info:
   description: Testovací api pro seznámení s novým nástrojem
-  contact: 
+  contact:
     email: vojtech.buba@peckadesign.cz
   title: Test api
   version: '1.0'
@@ -28,6 +28,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Product'
+              examples:
+                Základní produkt:
+                  value:
+                    id: 1
+                    name: Apple iPhone 8 64 GB
+                    price: 399
+                    description: Super telefon
+                Drahý iphone:
+                  value:
+                    id: 2
+                    name: Apple iPhone XS 256 GB
+                    price: 999
+                    description: Drahý ipohne
       operationId: get-products-id
       description: Získáni informací o produktu
 components:
