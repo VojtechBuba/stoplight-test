@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Test api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/products/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-products-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Product:
+      title: Product
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
+        description:
+          type:
+            - string
+            - 'null'
+      description: Entita produktu
